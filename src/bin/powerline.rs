@@ -17,8 +17,8 @@ fn main() {
     prompt.add_module(Git::<SimpleTheme>::new());
     prompt.add_module(ReadOnly::<SimpleTheme>::new());
     prompt.add_module(Cmd::<SimpleTheme>::new());
-    // prompt.add_module(VirtualEnv::<SimpleTheme>::new())?;
-    // prompt.add_module(ExitCode::<SimpleTheme>::new())?;
+    // prompt.add_module(VirtualEnv::<SimpleTheme>::new());
+    // prompt.add_module(ExitCode::<SimpleTheme>::new());
 
     println!("{} ", prompt);
 }

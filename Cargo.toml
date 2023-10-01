@@ -1,7 +1,7 @@
 [package]
 name = "powerline"
 version = "0.3.0"
-authors = ["cirho <me@cirho.com>"]
+authors = ["r58playz <r58playz@gmail.com>", "cirho <me@cirho.com>"]
 edition = "2018"
 
 [dependencies]

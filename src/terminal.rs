@@ -1,71 +1,61 @@
 #[derive(Clone, Copy, PartialEq, Eq)]
-pub struct Color(pub u8);
+pub struct Color(pub u8, pub u8, pub u8);
 
 #[derive(Clone, Copy, PartialEq, Eq)]
-pub struct BgColor(u8);
+pub struct BgColor(u8, u8, u8);
 
 #[derive(Clone, Copy, PartialEq, Eq)]
-pub struct FgColor(u8);
+pub struct FgColor(u8, u8, u8);
 
 pub struct Reset;
 
-impl Color {
-    pub fn to_u8(self) -> u8 {
-        self.0
-    }
-
-    pub fn from_u8(val: u8) -> Color {
-        Color(val)
-    }
-}
-
 impl FgColor {
     pub fn transpose(self) -> BgColor {
-        BgColor(self.0)
+        BgColor(self.0, self.1, self.2)
     }
 }
 
 impl From<Color> for FgColor {
     fn from(c: Color) -> Self {
-        FgColor(c.0)
+        FgColor(c.0, c.1, c.2)
     }
 }
 
 impl BgColor {
     pub fn transpose(self) -> FgColor {
-        FgColor(self.0)
+        FgColor(self.0, self.1, self.2)
     }
 }
 
 impl From<Color> for BgColor {
     fn from(c: Color) -> Self {
-        BgColor(c.0)
+        BgColor(c.0, c.1, c.2)
     }
 }
 
 impl std::fmt::Display for BgColor {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         #[cfg(feature = "bash-shell")]
-        return write!(f, r#"\[\e[48;5;{}m\]"#, self.0);
+        return write!(f, r#"\[\e[48;2;{};{};{}m\]"#, self.0, self.1, self.2);
 
         #[cfg(feature = "bare-shell")]
-        return write!(f, "\x1b[48;5;{}m", self.0);
+        return write!(f, "\x1b[48;2;{};{};{}m", self.0, self.1, self.2);
 
         #[cfg(feature = "zsh-shell")]
-        return write!(f, "%{{\x1b[48;5;{}m%}}", self.0);
+        return write!(f, "%{{\x1b[48;2;{};{};{}m%}}", self.0, self.1, self.2);
     }
 }
 
 impl std::fmt::Display for FgColor {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         #[cfg(feature = "bash-shell")]
-        return write!(f, r#"\[\e[38;5;{}m\]"#, self.0);
+        return write!(f, r#"\[\e[38;2;{};{};{}m\]"#, self.0, self.1, self.2);
 
         #[cfg(feature = "bare-shell")]
-        return write!(f, "\x1b[38;5;{}m", self.0);
+        return write!(f, "\x1b[38;2;{};{};{}m", self.0, self.1, self.2);
 
         #[cfg(feature = "zsh-shell")]
-        return write!(f, "%{{\x1b[38;5;{}m%}}", self.0);
+        return write!(f, "%{{\x1b[38;2;{};{};{}m%}}", self.0, self.1, self.2);
     }
 }
 
