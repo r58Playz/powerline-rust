@@ -9,7 +9,7 @@ pub struct ReadOnly<S>(PhantomData<S>);
 pub trait ReadOnlyScheme {
     const READONLY_FG: Color;
     const READONLY_BG: Color;
-    const READONLY_SYMBOL: &'static str = "";
+    const READONLY_SYMBOL: &'static str = "";
 }
 
 impl<S: ReadOnlyScheme> ReadOnly<S> {

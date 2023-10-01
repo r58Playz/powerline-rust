@@ -45,7 +45,7 @@ pub fn get_detached_branch_name() -> String {
 
     if child.status.success() {
         let branch = std::str::from_utf8(&child.stdout).unwrap().split('\n').next().unwrap();
-        format!("\u{2693}{}", branch)
+        format!("\u{F0031}{}", branch)
     } else {
         String::from("Big Bang")
     }
