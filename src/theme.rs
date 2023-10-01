@@ -75,3 +75,7 @@ impl SshScheme for SimpleTheme {
     const SSH_BG: Color = Color(245, 194, 231);
     const SSH_FG: Color = Color(49, 50, 68);
 }
+
+impl NewlineScheme for SimpleTheme {
+    const NEWLINE_COLOR: Color = Color(203, 166, 247);
+}

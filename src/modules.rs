@@ -5,6 +5,7 @@ mod cwd;
 mod exit_code;
 mod git;
 mod host;
+mod newline;
 mod readonly;
 mod ssh;
 mod user;
@@ -18,6 +19,7 @@ pub use cwd::{Cwd, CwdScheme};
 pub use exit_code::{ExitCode, ExitCodeScheme};
 pub use git::{Git, GitScheme};
 pub use host::{Host, HostScheme};
+pub use newline::{Newline, NewlineScheme};
 pub use readonly::{ReadOnly, ReadOnlyScheme};
 pub use ssh::{Ssh, SshScheme};
 #[cfg(feature = "time")]
