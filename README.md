@@ -22,7 +22,7 @@ cargo install --git https://github.com/r58Playz/powerline-rust
 # zsh shell 
 cargo install --git https://github.com/r58Playz/powerline-rust --no-default-features --features=zsh-shell,libgit
 # fish shell
-cargo install --git https://github.ocm/r58Playz/powerline-rust --no-default-features --features=bare-shell,libgit
+cargo install --git https://github.com/r58Playz/powerline-rust --no-default-features --features=bare-shell,libgit
 ```
 You can also install one of examples by adding `--example {name}` to cargo command.
 
