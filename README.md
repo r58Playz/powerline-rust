@@ -1,5 +1,4 @@
 # powerline-rust
-[![Build Status](https://travis-ci.org/cirho/powerline-rust.svg)](https://travis-ci.org/cirho/powerline-rust)
 
 powerline-rust is an alternative to [powerline-shell](https://github.com/b-ryan/powerline-shell). It's heavily inspired by it, but focuses on **minimalizing time of execution**.
 
@@ -18,14 +17,12 @@ With default settings `powerline-rust` uses `libgit` for git prompt. Unfortunate
 
 ## Simple installation 
 ```bash
-git clone https://github.com/cirho/powerline-rust
-cd powerline-rust
 # bash shell 
-cargo install --path .
+cargo install --git https://github.com/r58Playz/powerline-rust
 # zsh shell 
-cargo install --path . --no-default-features --features=zsh-shell,libgit
+cargo install --git https://github.com/r58Playz/powerline-rust --no-default-features --features=zsh-shell,libgit
 # fish shell
-cargo install --path . --no-default-features --features=bare-shell,libgit
+cargo install --git https://github.ocm/r58Playz/powerline-rust --no-default-features --features=bare-shell,libgit
 ```
 You can also install one of examples by adding `--example {name}` to cargo command.
 
@@ -77,7 +74,7 @@ fn main() {
 
 
 ```
-## Tips and trigs
+## Tips and tricks
 ### Strip executable
 Remove unnecessary symbols from file to greatly reduce size of it.
 Theoretically it can reduce time of execution.
