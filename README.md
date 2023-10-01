@@ -5,11 +5,11 @@ powerline-rust is an alternative to [powerline-shell](https://github.com/b-ryan/
 
 Nobody wants to see latency between pressing enter in favourite shell and seeing prompt. This is main aim of this crate and that's why some features of other alternatives like dynamic segments choosing and theming via **commandline arguments** is **not possible here**.
 
-Although, similar results **can be archived** by **customization**.
+Although, similar results **can be achieved** by **customization**.
 
-There is a demand to recompile every time while customizing, but you change your prompt only once upon a time. I think performance beneficence is worth it.
+There is a demand to recompile every time while customizing, but you change your prompt only once upon a time. I think performance benefit is worth it.
 
-With default settings `powerline-rust` uses `libgit` for git prompt. Unfortunately results vary from system to system so if you want every last bit of a performance you can try disabling this feature and benchmarking.
+With default settings `powerline-rust` uses `libgit` for git prompt. Unfortunately results vary from system to system so if you want every last bit of performance you can try disabling this feature and benchmarking.
 ## Advantages 
 - blazing fast (less than 0.010s)
 - only necessary dependencies
@@ -58,7 +58,7 @@ end
 ```
 
 ## Custom shell prompt
-Simply create new rust program that fulfils your requirements.
+Simply create a new rust program that fulfils your requirements.
 ```rust
 use powerline::{modules::*, theme::SimpleTheme};
 
@@ -109,15 +109,15 @@ use powerline::{modules::*, terminal::Color};
 struct Theme;
 
 impl CmdScheme for Theme {
-    const CMD_FAILED_BG: Color = Color(161);
-    const CMD_FAILED_FG: Color = Color(15);
-    const CMD_PASSED_BG: Color = Color(236);
-    const CMD_PASSED_FG: Color = Color(15);
+    const CMD_FAILED_BG: Color = Color(215, 0, 95);
+    const CMD_FAILED_FG: Color = Color(255, 255, 255);
+    const CMD_PASSED_BG: Color = Color(48, 48, 48);
+    const CMD_PASSED_FG: Color = Color(255, 255, 255);
 }
 
 fn main() {
     let mut prompt = powerline::Powerline::new();
-    prompt.add_module(Cmd::<SimpleTheme>::new());
+    prompt.add_module(Cmd::<Theme>::new());
 
 ...
 ```
