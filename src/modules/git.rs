@@ -107,7 +107,7 @@ impl<S: GitScheme> Module for Git<S> {
         add_elem(stats.behind, '\u{F0045}', S::GIT_BEHIND_FG, S::GIT_BEHIND_BG);
         add_elem(stats.staged, '\u{F012c}', S::GIT_STAGED_FG, S::GIT_STAGED_BG);
         add_elem(stats.non_staged, '\u{F03EB}', S::GIT_NOTSTAGED_FG, S::GIT_NOTSTAGED_BG);
-        add_elem(stats.untracked, '\u{2753}', S::GIT_UNTRACKED_FG, S::GIT_UNTRACKED_BG);
-        add_elem(stats.conflicted, '\u{273C}', S::GIT_CONFLICTED_FG, S::GIT_CONFLICTED_BG);
+        add_elem(stats.untracked, '\u{F04CE}', S::GIT_UNTRACKED_FG, S::GIT_UNTRACKED_BG);
+        add_elem(stats.conflicted, '\u{F06C4}', S::GIT_CONFLICTED_FG, S::GIT_CONFLICTED_BG);
     }
 }
