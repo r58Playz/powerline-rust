@@ -70,3 +70,8 @@ impl VirtualEnvScheme for SimpleTheme {
     const PYVENV_BG: Color = Color(116, 227, 161);
     const PYVENV_FG: Color = Color(49, 50, 68);
 }
+
+impl SshScheme for SimpleTheme {
+    const SSH_BG: Color = Color(245, 194, 231);
+    const SSH_FG: Color = Color(49, 50, 68);
+}
