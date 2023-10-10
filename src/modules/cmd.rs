@@ -30,13 +30,14 @@ impl<S: CmdScheme> Cmd<S> {
 
 impl<S: CmdScheme> Module for Cmd<S> {
     fn append_segments(&mut self, powerline: &mut Powerline) {
-        let (fg, bg) = if self.status.or_else(|| env::args().nth(1).map(|x| x == "0")).unwrap_or(false) {
-            (S::CMD_PASSED_FG, S::CMD_PASSED_BG)
-        } else {
-            (S::CMD_FAILED_FG, S::CMD_FAILED_BG)
-        };
+        let (fg, bg) =
+            if self.status.or_else(|| Some(env::args().skip(1).map(|x| x == "0").all(|x| x))).unwrap_or(false) {
+                (S::CMD_PASSED_FG, S::CMD_PASSED_BG)
+            } else {
+                (S::CMD_FAILED_FG, S::CMD_FAILED_BG)
+            };
 
         let special = if users::get_current_uid() == 0 { S::CMD_ROOT_SYMBOL } else { S::CMD_USER_SYMBOL };
-        powerline.add_segment(special, Style::simple(fg, bg));
+        powerline.add_segment(special, Style::special(fg, bg, '\u{E0B4}', bg));
     }
 }

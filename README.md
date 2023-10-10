@@ -31,7 +31,7 @@ You can also install one of examples by adding `--example {name}` to cargo comma
 ### bash
 ```bash
 function _update_ps1() {
-    PS1="$(powerline $?)"
+    PS1="$(powerline ${PIPESTATUS[@]})"
 }
 
 if [ "$TERM" != "linux" ]; then
@@ -42,7 +42,7 @@ fi
 You must also compile with `zsh-shell` feature.
 ```zsh
 _update_ps1() {
-    PS1="$(powerline $?)"
+    PS1="$(powerline ${pipestatus[@]})"
 }
 precmd_functions+=(_update_ps1)
 ```
@@ -50,7 +50,7 @@ precmd_functions+=(_update_ps1)
 You must also compile with `bare-shell` feature.
 ```bash
 function fish_prompt
-    powerline $status
+    powerline $pipestatus
 end
 ```
 
